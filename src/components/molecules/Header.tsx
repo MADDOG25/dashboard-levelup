@@ -1,42 +1,25 @@
-import { IconContext } from "react-icons";
-import { TiChartLine } from "react-icons/ti";
-import { TiBell } from "react-icons/ti";
-import { TiArrowSortedDown } from "react-icons/ti";
-import Navbar from "./Navbar";
+import Logo from "../atoms/Header/Logo";
+// import Notification from "../atoms/Header/Notification";
+import ProfileMenu from "../atoms/Header/ProfileMenu";
+import Navbar from "../atoms/Navbar/Navbar";
 
 export default function Header() {
   return (
-    <IconContext.Provider value={{ size: "30px", className: "cursor-pointer" }}>
-      <header className="bg-[--colorWhite] text-[--colorBlue1] font-semibold text-xl h-full pt-6 grid items-center">
-        <div className="flex justify-between items-center">
-          <div className="px-10">
-            {/* Logo */}
-            <h1 className="flex items-center gap-1 cursor-pointer">
-              <TiChartLine />
-              Level Up
-            </h1>
+    <header className="bg-[--colorBlue1] h-full pt-6 grid">
+      <div className="grid gap-y-4">
+        <div className="grid grid-flow-cols-1 mx-auto gap-y-4 lg:gap-0 lg:mx-0 lg:grid-cols-2">
+          <div className="flex items-center justify-start">
+            <Logo />
           </div>
-
-          <div className="flex justify-between gap-x-12">
-            {/* Icono de notificacion */}
-            <div>
-              <p>
-                <TiBell />
-              </p>
-            </div>
-
-            {/* Perfil desplegable */}
-            <div className="px-10">
-              <p className="flex items-center gap-x-2 cursor-pointer">
-                DevJeffrey
-                <TiArrowSortedDown />
-              </p>
-            </div>
+          <div className="flex items-center justify-end">
+            {/* <Notification /> */}
+            <ProfileMenu />
           </div>
         </div>
-        {/* Barra de navegacion */}
-        <Navbar/>
-      </header>
-    </IconContext.Provider>
+        <div>
+          <Navbar />
+        </div>
+      </div>
+    </header>
   );
 }
