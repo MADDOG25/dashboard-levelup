@@ -1,5 +1,5 @@
 import Logo from "../atoms/Header/Logo";
-// import Notification from "../atoms/Header/Notification";
+import Notification from "../atoms/Header/Notification";
 import ProfileMenu from "../atoms/Header/ProfileMenu";
 import Navbar from "../atoms/Navbar/Navbar";
 
@@ -12,7 +12,7 @@ export default function Header() {
             <Logo />
           </div>
           <div className="flex items-center justify-end">
-            {/* <Notification /> */}
+            <Notification />
             <ProfileMenu />
           </div>
         </div>

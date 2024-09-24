@@ -8,7 +8,7 @@ export default function ProfileMenu() {
       <Menu as="div" className="relative">
         <div>
           <MenuButton className="relative">
-            <div className="text-[--colorWhite] font-semibold text-xl px-10">
+            <div className="text-[--colorWhite] font-semibold text-xl px-6">
               <p className="flex items-center gap-x-2 cursor-pointer">
                 DevJeffrey
                 <TiArrowSortedDown />
