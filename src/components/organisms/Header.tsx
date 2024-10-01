@@ -1,7 +1,7 @@
-import Logo from "../atoms/Header/Logo";
-import Notification from "../atoms/Header/Notification";
-import ProfileMenu from "../atoms/Header/ProfileMenu";
-import Navbar from "../atoms/Navbar/Navbar";
+import Logo from "../atoms/LogoProfile/Logo";
+import Notification from "../atoms/LogoProfile/Notification";
+import ProfileMenu from "../atoms/LogoProfile/ProfileMenu";
+import NavbarMenu from "../atoms/NavbarMenu/NavbarMenu";
 
 export default function Header() {
   return (
@@ -17,7 +17,7 @@ export default function Header() {
           </div>
         </div>
         <div>
-          <Navbar />
+          <NavbarMenu />
         </div>
       </div>
     </header>

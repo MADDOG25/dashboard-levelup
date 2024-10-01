@@ -18,7 +18,7 @@ const navigation = {
   // Add more navigation items here...
 };
 
-export default function Navbar() {
+export default function NavbarMenu() {
   return (
     <IconContext.Provider value={{ size: "20px" }}>
       <nav className="text-[--colorWhite] w-full font-semibold text-lg h-full grid grid-cols-1 md:grid-cols-3 gap-y-2 lg:grid-cols-6 mx-auto px-16 pb-6 pt-4 justify-center items-center">
