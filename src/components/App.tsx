@@ -5,8 +5,8 @@ function App() {
   return (
     <>
       <div>
-        <Header/>
-        <Overview/>
+        <Header />
+        <Overview />
       </div>
     </>
   );
