@@ -1,8 +1,5 @@
 import { Link } from "react-router-dom";
-import InputText from "../atoms/Form/Login/InputText";
-import InputPassword from "../atoms/Form/Login/InputPassword";
-import ButtonSubmit from "../atoms/Form/Login/ButtonSubmitLogin";
-import LogoForm from "../atoms/Form/Login/LogoForm";
+import LogoForm from "../atoms/Form/LogoForm";
 
 export default function LoginForm() {
   return (
@@ -13,11 +10,27 @@ export default function LoginForm() {
         </h2>
         <form className="text-center grid gap-y-4">
           {/* Email */}
-          <InputText />
+          <input
+            className="w-60 p-2 text-center font-medium text-[--colorBlue2] rounded-lg rounded-tl-2xl rounded-br-2xl outline-none"
+            type="text"
+            name="email"
+            placeholder="Correo"
+          />
           {/* Password */}
-          <InputPassword />
+          <input
+            className="w-60 p-2 text-center font-medium  text-[--colorBlue2] rounded-lg rounded-tl-2xl rounded-br-2xl outline-none"
+            type="password"
+            name="password"
+            placeholder="Contraseña"
+          />
           {/* Submit button */}
-          <ButtonSubmit />
+          <Link
+            className="w-40 mx-auto bg-[--colorSky] text-[--colorWhite] font-medium  px-4 py-2 rounded-xl hover:bg-[--colorGreen] hover:text-[--colorBlue1]"
+            type="submit"
+            to="/home"
+          >
+            Inicia Sesión
+          </Link>
         </form>
         <p className="text-[--colorWhite] font-semibold mt-10">
           No tienes una cuenta?

@@ -8,21 +8,25 @@ import RegisterForm from "./components/organisms/RegisterForm.tsx";
 import LoginForm from "./components/organisms/LoginForm.tsx";
 
 const router = createBrowserRouter([
+  // Route Login Home Page
   {
     path: "/",
     element: <LoginForm />,
     errorElement: <ErrorPage />,
   },
+  // Route Register
   {
     path: "/signup",
     element: <RegisterForm />,
     errorElement: <ErrorPage />,
   },
+  // Route Login
   {
     path: "/signin",
     element: <LoginForm />,
     errorElement: <ErrorPage />,
   },
+  // Route Home
   {
     path: "/home",
     element: <App />,
