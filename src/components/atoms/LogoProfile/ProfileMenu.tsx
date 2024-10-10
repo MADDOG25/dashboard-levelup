@@ -2,7 +2,7 @@ import { Menu, MenuButton, MenuItems, MenuItem } from "@headlessui/react";
 import { IconContext } from "react-icons";
 import { TiArrowSortedDown } from "react-icons/ti";
 import { signOut } from "firebase/auth";
-import { useAuth } from "../../../AuthContext";
+import { useAuth } from "../../../AuthProvider";
 import { auth } from "../../../firebase";
 import { useNavigate } from "react-router-dom";
 

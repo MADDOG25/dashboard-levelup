@@ -7,7 +7,7 @@ import "./index.css";
 import RegisterForm from "./components/organisms/RegisterForm.tsx";
 import LoginForm from "./components/organisms/LoginForm.tsx";
 import PrivateRoute from "./routes/PrivateRoute.tsx";
-import { AuthProvider } from "./AuthContext.tsx";
+import { AuthProvider } from "./AuthProvider.tsx";
 
 const router = createBrowserRouter([
   // Route Login Home Page

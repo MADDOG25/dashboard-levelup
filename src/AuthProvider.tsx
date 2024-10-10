@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useEffect } from "react";
+import { createContext, useState, useEffect } from "react";
 import { User, onAuthStateChanged } from "firebase/auth";
 import { auth } from "./firebase";
 
@@ -9,16 +9,9 @@ interface AuthContextProps {
 }
 
 //Crear el contexto
-const AuthContext = createContext<AuthContextProps | undefined>(undefined);
-
-//Hook personalizado que permite acceso al contexto de autenticación
-export const useAuth = () => {
-  const context = useContext(AuthContext);
-  if (context === undefined) {
-    throw new Error("useAuth debe ser usado dentro de un AuthProvider");
-  }
-  return context;
-};
+export const AuthContext = createContext<AuthContextProps | undefined>(
+  undefined
+);
 
 //Provider que maneja el estado de autenticación
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
