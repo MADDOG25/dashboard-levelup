@@ -1,8 +1,30 @@
 import { Menu, MenuButton, MenuItems, MenuItem } from "@headlessui/react";
 import { IconContext } from "react-icons";
 import { TiArrowSortedDown } from "react-icons/ti";
+import { signOut } from "firebase/auth";
+import { useAuth } from "../../../AuthContext";
+import { auth } from "../../../firebase";
+import { useNavigate } from "react-router-dom";
 
 export default function ProfileMenu() {
+  //Navegador
+  const navigate = useNavigate();
+
+  //Contexto de la aplicación
+  const { user } = useAuth();
+
+  //Cerrar sesion
+  const handleSignOut = async () => {
+    try {
+      await signOut(auth);
+      console.log("Cierre de sesion exitoso");
+      //Redirigir al inicio de sesion
+      navigate("/signin");
+    } catch (error) {
+      console.log("🚀 ~ handleSignOut ~ error:", error);
+    }
+  };
+
   return (
     <IconContext.Provider value={{ size: "30px", className: "cursor-pointer" }}>
       <Menu as="div" className="relative">
@@ -10,7 +32,8 @@ export default function ProfileMenu() {
           <MenuButton className="relative">
             <div className="text-[--colorWhite] font-semibold text-xl px-6">
               <p className="flex items-center gap-x-2 cursor-pointer">
-                DevJeffrey
+                {/* {user ? user.displayName : "Invitado"} */}
+                DevJeffrey25
                 <TiArrowSortedDown />
               </p>
             </div>
@@ -38,6 +61,7 @@ export default function ProfileMenu() {
           </MenuItem>
           <MenuItem>
             <a
+              onClick={handleSignOut}
               href="#"
               className="block px-4 py-2 text-sm text-[--colorBlue1] hover:text-[--colorWhite] data-[focus]:bg-[--colorBlue1]"
             >

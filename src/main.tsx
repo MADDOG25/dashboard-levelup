@@ -6,7 +6,7 @@ import ErrorPage from "./routes/ErrorPage.tsx";
 import "./index.css";
 import RegisterForm from "./components/organisms/RegisterForm.tsx";
 import LoginForm from "./components/organisms/LoginForm.tsx";
-import PrivateRoute from "./PrivateRoute.tsx";
+import PrivateRoute from "./routes/PrivateRoute.tsx";
 import { AuthProvider } from "./AuthContext.tsx";
 
 const router = createBrowserRouter([
