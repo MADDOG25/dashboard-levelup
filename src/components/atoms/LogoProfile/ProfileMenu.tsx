@@ -2,7 +2,7 @@ import { Menu, MenuButton, MenuItems, MenuItem } from "@headlessui/react";
 import { IconContext } from "react-icons";
 import { TiArrowSortedDown } from "react-icons/ti";
 import { signOut } from "firebase/auth";
-import { useAuth } from "../../../AuthProvider";
+import { useAuth } from "../../../useAuth";
 import { auth } from "../../../firebase";
 import { useNavigate } from "react-router-dom";
 
@@ -32,7 +32,7 @@ export default function ProfileMenu() {
           <MenuButton className="relative">
             <div className="text-[--colorWhite] font-semibold text-xl px-6">
               <p className="flex items-center gap-x-2 cursor-pointer">
-                {/* {user ? user.displayName : "Invitado"} */}
+                {user ? user.displayName : "Invitado"}
                 DevJeffrey25
                 <TiArrowSortedDown />
               </p>
