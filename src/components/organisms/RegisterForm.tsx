@@ -1,8 +1,13 @@
 import { Link } from "react-router-dom";
 import LogoForm from "../atoms/Form/LogoForm";
 import { useForm } from "@tanstack/react-form";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../firebase";
+import { useNavigate } from "react-router-dom";
 
 export default function RegisterForm() {
+  const navigate = useNavigate();
+
   //Validacion de formulario
   const form = useForm({
     defaultValues: {
@@ -11,8 +16,18 @@ export default function RegisterForm() {
       password: "",
     },
     onSubmit: async ({ value }) => {
-      // Enviar los valores al backend
-      console.log(value);
+      // Autenticacion de nuevos usuarios
+      try {
+        const userCredential = await createUserWithEmailAndPassword(
+          auth,
+          value.email,
+          value.password
+        );
+        //Redigirir a la pagina home
+        navigate("/home");
+      } catch (error) {
+        console.log("🚀 ~ Error al registrar:", error);
+      }
     },
   });
 
@@ -49,7 +64,7 @@ export default function RegisterForm() {
                   onChange={(e) => field.handleChange(e.target.value)}
                 />
                 {field.state.meta.errors || (
-                  <p className="text-red-600 text-sm">
+                  <p className="text-red-500 text-sm">
                     {field.state.meta.errors}
                   </p>
                 )}
@@ -77,7 +92,7 @@ export default function RegisterForm() {
                   onChange={(e) => field.handleChange(e.target.value)}
                 />
                 {field.state.meta.errors || (
-                  <p className="text-red-600 text-sm">
+                  <p className="text-red-500 text-sm">
                     {field.state.meta.errors}
                   </p>
                 )}
@@ -124,14 +139,13 @@ export default function RegisterForm() {
             )}
           />
           {/* Submit button */}
-          <Link
+          <button
             className="w-40 mx-auto bg-[--colorSky] text-[--colorWhite] font-medium  px-4 py-2 rounded-xl hover:bg-[--colorGreen] hover:text-[--colorBlue1]"
             type="submit"
-            // to="/home"
             onClick={form.handleSubmit}
           >
             Registrate
-          </Link>
+          </button>
         </form>
         <p className="text-[--colorWhite] font-semibold mt-10">
           Ya tienes una cuenta?

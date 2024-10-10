@@ -6,6 +6,8 @@ import ErrorPage from "./routes/ErrorPage.tsx";
 import "./index.css";
 import RegisterForm from "./components/organisms/RegisterForm.tsx";
 import LoginForm from "./components/organisms/LoginForm.tsx";
+import PrivateRoute from "./PrivateRoute.tsx";
+import { AuthProvider } from "./AuthContext.tsx";
 
 const router = createBrowserRouter([
   // Route Login Home Page
@@ -29,13 +31,19 @@ const router = createBrowserRouter([
   // Route Home
   {
     path: "/home",
-    element: <App />,
+    element: (
+      <PrivateRoute>
+        <App />
+      </PrivateRoute>
+    ),
     errorElement: <ErrorPage />,
-  }
+  },
 ]);
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <RouterProvider router={router}></RouterProvider>
+    <AuthProvider>
+      <RouterProvider router={router}></RouterProvider>
+    </AuthProvider>
   </StrictMode>
 );
