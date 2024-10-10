@@ -1,10 +1,12 @@
-import Header from "./molecules/Header";
+import Header from "./organisms/Header";
+import Overview from "./organisms/Overview";
 
 function App() {
   return (
     <>
       <div>
-        <Header/>
+        <Header />
+        <Overview />
       </div>
     </>
   );
